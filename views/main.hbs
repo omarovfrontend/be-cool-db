@@ -1,0 +1,33 @@
+{{!-- method="post" значит в mainRouter пишем router.post ... --}}
+<form class="addPost" action="/add" method="post">
+  <div class="addPost_card">
+    <label for="name" class="form-label">Название</label>
+	  <input class="input" required="required" type="text" name="productName" placeholder="Name" />
+  </div>
+
+	<div class="addPost_card">
+    <label for="examplePassword" class="form-label">Категория</label>
+	  <input class="input" required="required" type="text" name="categoryName" placeholder="Name" />
+  </div>
+
+	<div class="addPost_card">
+    <label for="name" class="form-label">Ссылка на картинку</label>
+	  <input class="input" required="required" type="text" name="img" placeholder="Name" />
+  </div>
+
+  <button class="addPost_button" type="submit">Добавить</button>
+</form>
+
+<div class="card">
+  {{#each products}}
+    <form action="/delete" method="delete">
+      <div class="products">
+        <img style="width: 400px;" src={{this.img}} alt="">
+        <p>
+          {{this.name}} - {{this.Category.name}} - {{this.User.name}}
+        </p>
+          <button type="button">Удалить</button>
+      </div>
+    </form>
+  {{/each}}
+</div>

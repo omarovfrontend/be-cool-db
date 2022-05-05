@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My-Cool</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="home_btn" href="http://localhost:3000">ДОМОЙ</a>
+  {{#if userId}}
+  <a class="logout_btn" href="http://localhost:3000/logout">ВЫЙТИ</a>
+  {{else}}
+  <a class="signup_btn" href="http://localhost:3000/signup">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+  <a class="signin_btn" href="http://localhost:3000/signin">ВОЙТИ</a>
+  {{/if}}
+  {{{body}}}
+</body>
+</html>
