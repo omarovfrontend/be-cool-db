@@ -53,9 +53,9 @@ router.post('/signin', async (req, res) => {
       req.session.userId = user.id; // запихиваем в сессию
       req.session.email = user.email; // запихиваем в сессию
       req.session.name = user.name; // запихиваем в сессию
-      res.redirect('main');
+      res.redirect('/');
     } else {
-      res.send('error, Cannot find User!');
+      res.send('Error, Cannot find User!');
     }
   } catch (error) {
     res.send('Cannot find User!');
@@ -64,7 +64,7 @@ router.post('/signin', async (req, res) => {
 
 router.get('/logout', (req, res) => {
   req.session.destroy(); // удаляет сессию
-  res.clearCookie('sss');
+  res.clearCookie('sos');
   res.redirect('signin');
 }); // эту строку запомнить, всегда одинакова
 

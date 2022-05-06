@@ -16,10 +16,20 @@ router.post('/add', async (req, res) => {
         img,
       },
     );
-    res.render('main');
+    res.redirect('/');
   } catch (error) {
     res.send('Упппссс не вышло!');
   }
+});
+
+router.delete('/delete/:id', async (req, res) => {
+  const { id } = req.params;
+  const a = await Product.destroy({
+    where: {
+      id,
+    },
+  });
+  res.json({ isUpdatedSuccessful: true });
 });
 
 module.exports = router;
