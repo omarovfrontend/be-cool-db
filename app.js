@@ -30,7 +30,7 @@ app.use(session({
 })); // эта строчка для сессии везде идентична - просто вставить
 
 app.use((req, res, next) => {
-  res.locals.userId = req.session?.userId;
+  res.locals.name = req.session?.name;
   next();
 }); // создает локальную переменную, которая сущ-ет если польз-ль залогинин
 

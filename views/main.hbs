@@ -1,33 +1,37 @@
 {{!-- method="post" значит в mainRouter пишем router.post ... --}}
-<form class="addPost" action="/add" method="post">
-  <div class="addPost_card">
-    <label for="name" class="form-label">Название</label>
-	  <input class="input" required="required" type="text" name="productName" placeholder="Name" />
-  </div>
+<div class="wrapper_form">
 
-	<div class="addPost_card">
-    <label for="examplePassword" class="form-label">Категория</label>
-	  <input class="input" required="required" type="text" name="categoryName" placeholder="Name" />
-  </div>
+  <form class="addPost" action="/add" method="post">
+    <div class="addPost_card">
+      <label for="name" class="form-label">Название Продукта:</label>
+	    <input class="input" required="required" type="text" name="productName" placeholder="name..." />
+    </div>
 
-	<div class="addPost_card">
-    <label for="name" class="form-label">Ссылка на картинку</label>
-	  <input class="input" type="text" name="img" placeholder="Name" />
-  </div>
+	  <div class="addPost_card">
+      <label for="examplePassword" class="form-label">Категория Продукта:</label>
+	    <input class="input" required="required" type="text" name="categoryName" placeholder="name..." />
+    </div>
 
-  <button class="addPost_button" type="submit">Добавить</button>
-</form>
+	  <div class="addPost_card">
+      <label for="name" class="form-label">Ссылка на картинку:</label>
+	    <input class="input" required type="text" name="img" placeholder="вставьте ссылку..." />
+    </div>
 
-<div class="card">
-  {{#each products}}
-    <div  class="products">
+    <button class="addPost_button" type="submit">Добавить</button>
+  </form>
+
+  <div class="card">
+    {{#each products}}
+      <div  class="products">
         <img style="width: 250px;" src={{this.img}} alt="photo">
         <p>
-          {{this.name}} - {{this.Category.name}} - {{this.User.name}}
+          {{this.name}} - {{this.Category.name}} - {{../name}}
         </p>
         <div data-dataid="{{this.id}}" class="product-inner">
-          <button data-type="delete" id="delete" class="delete-btn">Удалить</button>
-       </div>
+          <button data-type="delete" id="delete" class="products_delete-btn">Удалить</button>
+        </div>
       </div>
-  {{/each}}
+    {{/each}}
+  </div>
+
 </div>

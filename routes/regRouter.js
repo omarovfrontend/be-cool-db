@@ -27,7 +27,7 @@ router.post('/signup', async (req, res) => {
       req.session.userId = user.id; // запихиваем в сессию
       req.session.email = user.email; // запихиваем в сессию
       req.session.name = user.name; // запихиваем в сессию
-      res.redirect('main');
+      res.redirect('/');
     }
   } catch (error) {
     res.status(500);

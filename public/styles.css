@@ -1,18 +1,24 @@
 body {
-  padding: 10px;
+  background-color: #75d7d7bd;
 }
 
-/* layout - btn */
+/* layout */
+.my-buttons {
+  text-align: center;
+  margin: 50px 0 30px 0;
+}
+
 .home_btn,
 .logout_btn,
 .signup_btn,
 .signin_btn,
 .delete-btn {
+  display: inline-block;
   text-decoration: none;
-  background-color: #63f474;
-  color: #034646;
+  background-color: #26e03c8c;
+  color: #000;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   transition: all .3s ease-in-out;
 }
 
@@ -20,56 +26,105 @@ body {
 .logout_btn:hover,
 .signup_btn:hover,
 .signin_btn:hover {
-  background-color: #034646;
-  color: #faebd7;
+  background-color: #06c61c;
+  color: #fff;
+}
+
+/* main */
+.wrapper_form {
+  margin: 20px;
+  text-align: center;
 }
 
 .addPost {
-  text-align: center;
-  margin: 20px;
+  margin-bottom: 30px;
 }
 
-.addPost_card {
+.addPost_card,
+.signup_card,
+.signin_card {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 15px;
 }
 
-.addPost_button {
-  cursor: pointer;
-  padding: 5px 25px;
+.form-label {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-family:'Courier New', Courier, monospace;
 }
 
+.signup_card input,
+.signin_card input {
+  margin-bottom: 10px;
+}
+
+.input {
+  border-radius: 7px;
+  border: 1px solid transparent;
+  width: 300px;
+  height: 30px;
+  font-size: 18px;
+  padding: 7px 15px;
+  color: #000;
+  font-style: italic;
+  font-family:'Courier New', Courier, monospace;
+  background-color: #e8f0fe;
+  transition: .20s ease-in-out;
+}
+
+.input:focus-within {
+  width: 330px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #8d8d8d;
+}
+
+.addPost_button,
+.signup_button,
+.signin_button,
+.products_delete-btn {
+  cursor: pointer;
+  padding: 7px;
+  background-color: #e8f0fe;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  width: 200px;
+  height: 40px;
+  color: #666;
+  transition: all .3s linear;
+}
+
+.addPost_button:hover,
+.signup_button:hover,
+.signin_button:hover,
+.products_delete-btn:hover {
+  background-color: #60e6e6bd;
+  border: 1px solid #000;
+}
+
+.products_delete-btn:hover {
+  background-color: #ea6d6d;
+  color: #fff;
+}
+
+/* main */
 .card {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
+  justify-content: center;
   flex-wrap: wrap;
   list-style: none;
   margin-bottom: 30px;
 }
 .products {
+  width: 250px;
   text-align: center;
-  border: 1px solid green;
-  margin-bottom: 10px;
+  border-top: 1px solid #0080007b;
+  border-right: 1px solid #0080007b;
+  border-left: 1px solid #0080007b;
+  margin-bottom: 30px;
+  margin-right: 20px;
 }
-
-form {
-  margin-top: 30px;
-}
-
-/* /* .delete-btn {
-  background-color: #034646;
-  color: #7fff00;
-  padding: 5px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background .3s ease-in-out;
-} */
-
-/* .delete-btn:hover {
-  background-color: #0dacac;
-} */

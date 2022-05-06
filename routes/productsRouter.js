@@ -18,13 +18,14 @@ router.post('/add', async (req, res) => {
     );
     res.redirect('/');
   } catch (error) {
-    res.send('Упппссс не вышло!');
+    res.send('Упппссс, не вышло!');
   }
 });
 
+// ручка для удаления поста
 router.delete('/delete/:id', async (req, res) => {
   const { id } = req.params;
-  const a = await Product.destroy({
+  await Product.destroy({
     where: {
       id,
     },

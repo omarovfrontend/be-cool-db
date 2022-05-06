@@ -9,13 +9,15 @@
   <script defer src="/index.js"></script>
 </head>
 <body>
-  <a class="home_btn" href="http://localhost:3000">ДОМОЙ</a>
-  {{#if userId}}
-  <a class="logout_btn" href="http://localhost:3000/logout">ВЫЙТИ</a>
-  {{else}}
-  <a class="signup_btn" href="http://localhost:3000/signup">ЗАРЕГИСТРИРОВАТЬСЯ</a>
-  <a class="signin_btn" href="http://localhost:3000/signin">ВОЙТИ</a>
-  {{/if}}
+  <div class="my-buttons">
+    <a class="home_btn" href="http://localhost:3000">ДОМОЙ</a>
+    {{#if name}}
+    <a class="logout_btn" href="http://localhost:3000/logout">ВЫЙТИ</a>
+    {{else}}
+    <a class="signup_btn" href="http://localhost:3000/signup">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+    <a class="signin_btn" href="http://localhost:3000/signin">ВОЙТИ</a>
+    {{/if}}
+  </div>
 
   {{{body}}}
 </body>
