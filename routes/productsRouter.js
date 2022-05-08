@@ -7,8 +7,9 @@ router.post('/add', async (req, res) => {
 
   try {
     const categoryAdd = await Category.create({ name: categoryName });
+    console.log(categoryAdd);
     console.log(categoryAdd.dataValues.id);
-    await Product.create(
+    const newProduct = await Product.create(
       {
         name: productName,
         user_id: req.session.user_id,
@@ -16,7 +17,7 @@ router.post('/add', async (req, res) => {
         img,
       },
     );
-    res.redirect('/');
+    res.json({ newProduct });
   } catch (error) {
     res.send('Упппссс, не вышло!');
   }
