@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Category, Product } = require('../db/models');
+const checkAuth = require('../middleware/checkAuth');
 
-router.post('/add', async (req, res) => {
+router.post('/add', checkAuth, async (req, res) => {
   const { productName, categoryName, img } = req.body; // получили данные из body
   console.log('=====>', req.body);
 

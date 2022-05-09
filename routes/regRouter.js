@@ -1,13 +1,15 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt'); // хеширует пароли
 const { User } = require('../db/models'); // забираем юзера из модели
+const checkAuth = require('../middleware/checkAuth');
+const checkLogin = require('../middleware/checkLogin');
 
 // SIGN UP
-router.get('/signup', (req, res) => {
+router.get('/signup', checkLogin, (req, res) => {
   res.render('signup');
 });
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', checkLogin, async (req, res) => {
   const { name, email, password } = req.body;
   const hash = bcrypt.hashSync(password, 5); // захешировал пароль
 
@@ -35,11 +37,11 @@ router.post('/signup', async (req, res) => {
 });
 
 // SIGN IN
-router.get('/signin', (req, res) => {
+router.get('/signin', checkLogin, (req, res) => {
   res.render('signin');
 });
 
-router.post('/signin', async (req, res) => {
+router.post('/signin', checkLogin, async (req, res) => {
   const { password } = req.body;
 
   try {
@@ -62,7 +64,7 @@ router.post('/signin', async (req, res) => {
   }
 });
 
-router.get('/logout', (req, res) => {
+router.get('/logout', checkAuth, (req, res) => {
   req.session.destroy(); // удаляет сессию
   res.clearCookie('sos');
   res.redirect('signin');

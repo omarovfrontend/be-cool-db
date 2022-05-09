@@ -1,4 +1,5 @@
 {{!-- method="post" значит в mainRouter пишем router.post ... --}}
+{{#if userId}}
 <div class="wrapper_form">
 
   <form name="addPost" class="addPost" action="/add" method="post">
@@ -19,19 +20,25 @@
 
     <button class="addPost_button" type="submit">Добавить</button>
   </form>
+  
 
   <div class="card">
     {{#each products}}
       <div  class="products">
         <img style="width: 250px;" src={{this.img}} alt="photo">
         <p>
-          {{this.name}} - {{this.Category.name}} - {{../name}}
+          {{this.name}} - {{'Category.name'}} - {{'User.name'}}
         </p>
+        {{#if owner}}
         <div data-dataid="{{this.id}}" class="product-inner">
           <button data-type="delete" id="delete" class="products_delete-btn">Удалить</button>
         </div>
+        {{else}}
+      
+        {{/if}}
       </div>
     {{/each}}
   </div>
 
 </div>
+{{/if}}
