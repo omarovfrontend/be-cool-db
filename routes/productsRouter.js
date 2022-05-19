@@ -16,7 +16,7 @@ router.post('/add', checkAuth, async (req, res) => {
         img,
       },
     );
-    res.json({ category: newProduct.category_id, name: req.session.name });
+    res.json({ category: newProduct.category_id, name: req.session.name, id: newProduct.id });
   } catch (error) {
     res.send('Упппссс, не вышло!');
   }
@@ -25,11 +25,14 @@ router.post('/add', checkAuth, async (req, res) => {
 // ручка для удаления поста
 router.delete('/delete/:id', async (req, res) => {
   const { id } = req.params;
+  console.log(id);
   await Product.destroy({
     where: {
       id,
     },
   });
+  const a = await Product.findByPk(id);
+  console.log('=====>', a);
   res.json({ isUpdatedSuccessful: true });
 });
 

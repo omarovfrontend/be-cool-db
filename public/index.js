@@ -20,7 +20,6 @@ addPost.addEventListener('submit', async (event) => {
   });
 
   const res = await response.json();
-  console.log(res);
 
   if (response.ok) {
     console.log(res);
@@ -28,7 +27,7 @@ addPost.addEventListener('submit', async (event) => {
       <div class="products">
         <img style="width: 250px;" src=${img.value} alt="photo">
         <p>${productName.value} - ${categoryName.value} - ${res.name} </p>
-        <div data-dataid="${res.category}" class="product-inner">
+        <div data-dataid="${res.id}" class="product-inner">
           <button data-type="delete" id="delete" class="products_delete-btn">Удалить</button>
         </div>
     </div>
@@ -47,6 +46,7 @@ btn.addEventListener('click', async (event) => {
   if (button === 'delete') {
     event.preventDefault();
     const id = event.target.closest('div').dataset.dataid;
+    console.log(id);
     const response = await fetch(`/delete/${id}`, {
       method: 'delete',
     });
