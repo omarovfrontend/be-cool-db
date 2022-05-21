@@ -6,7 +6,7 @@ require('dotenv').config(); // импортируем dotenv
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT ?? 3000;
 
 app.set('view engine', 'hbs');
 app.set('views', path.resolve(process.env.PWD, 'views'));
@@ -41,5 +41,5 @@ app.use('/', productsRouter);
 app.use('/', regRouter);
 
 app.listen(PORT, () => {
-  console.log('Server start on PORT', process.env.PORT);
+  console.log('Server start on PORT', PORT);
 });
