@@ -24,7 +24,8 @@ router.post('/signup', checkLogin, async (req, res) => {
     });
 
     if (!created) {
-      res.redirect('signup'); // если не created, перенаправить на стр signup
+      // res.redirect('signup'); // если не created, перенаправить на стр signup
+      res.render('signup', { message: 'Пользователь с таким email уже сущ-ет, создайте нового, или авторизуйтесь! ╮( ˘ ､ ˘ )╭' });
     } else {
       req.session.userId = user.id; // запихиваем в сессию
       req.session.email = user.email; // запихиваем в сессию
@@ -57,10 +58,12 @@ router.post('/signin', checkLogin, async (req, res) => {
       req.session.name = user.name; // запихиваем в сессию
       res.redirect('/');
     } else {
-      res.send('Error, Cannot find User!');
+      // res.send('Error, Cannot find User!');
+      res.render('signin', { message: 'Ошибочка, нет такого пользователя, попробуйте еще раз! (`_`)' });
     }
   } catch (error) {
-    res.send('Cannot find User!');
+    // res.send('Нет такого пользователя, зарегистрируйтесь или повторите еще раз!');
+    res.render('signin', { message: 'Нет такого пользователя, зарегистрируйтесь или повторите еще раз!' });
   }
 });
 
